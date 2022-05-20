@@ -7,6 +7,8 @@ import Styles from './index.css';
 import echarts from 'echarts';
 import NormalChart from './routes/chart/NormalChart';
 
+import poi_request from './pois';
+
 class App extends React.Component {
     static propTypes = {
 
@@ -36,6 +38,18 @@ class App extends React.Component {
         __cy.Connect("http://172.18.1.197:8081");
     }
 
+    AddPOIs() {
+        __cy.SendRequest("UpdatePOIs", poi_request, (result) => {
+            console.log("Request Result : ", result);
+        });
+    }
+
+    RemovePOIs() {
+        __cy.SendRequest("DeleteAllPOIs", {}, (result) => {
+            console.log("Request Result : ", result);
+        });
+    }
+
     render() {
         return (
             <ul className='Wrap clearfix' style={{ pointerEvents: "none" }}>
@@ -48,7 +62,10 @@ class App extends React.Component {
                     </div>
                 </li>
                 <li style={{ pointerEvents: "none" }}>
-
+                    <div className="ButtonArea">
+                        <div className="Button" onClick={this.AddPOIs.bind(this)}>加点</div>
+                        <div className="Button" onClick={this.RemovePOIs.bind(this)}>减点</div>
+                    </div>
                 </li>
                 <li className="Board">
                     <div className="chartWrap">

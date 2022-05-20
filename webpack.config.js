@@ -30,7 +30,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-            title: 'echarts-base-on-react-demoPage',
+            title: 'CyberNetDemo',
             template: './public/index.html', // Load a custom template
             inject: 'body' // Inject all scripts into the body
         }),
