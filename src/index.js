@@ -35,7 +35,7 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        __cy.Connect("http://172.18.1.197:8081");
+        __cy.Connect("http://xxxxxx:pppp");
     }
 
     AddPOIs() {
